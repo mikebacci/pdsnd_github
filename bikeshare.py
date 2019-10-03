@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import os
 
-city_data = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+city_data = { 'chicago': 'data/chicago.csv',
+              'new york city': 'data/new_york_city.csv',
+              'washington': 'data/washington.csv' }
 
 def get_filters():
     """
@@ -91,30 +91,30 @@ def time_stats(df, month, day):
 
     # display the most common month
     if month == 'all':
-        com_month = df['Month'].mode()[0]
+        common_month = df['Month'].mode()[0]
         print('    {} is the most common month for travel.\n'.format(com_month))
     else:
         print('    Since you\'ve selected {} to filter the data. It is, unsurprisingly, the most common month to start a ride in the available dataset.\n'.format(month.title()))
 
     # display the most common day of week
     if day == 'all':
-        com_day = df['Day of Week'].mode()[0]
+        common_day = df['Day of Week'].mode()[0]
         print('    {} is the most common day to have a ride.\n'.format(com_day))
     else:
         print('    Since you\'ve selected {} to filter the data. It is, unsurprisingly, the most common day to have a ride in the available dataset.\n'.format(day.title()))
 
     # display the most common start hour
-    com_hour = df['Hour'].mode()[0]
-    if com_hour == 1 or com_hour == 21:
-        sup_script = 'st'
-    elif com_hour == 2 or com_hour == 22:
-        sup_script = 'nd'
-    elif com_hour == 3 or com_hour == 23:
-        sup_script = 'rd'
+    common_hour = df['Hour'].mode()[0]
+    if common_hour == 1 or com_hour == 21:
+        super_script = 'st'
+    elif common_hour == 2 or com_hour == 22:
+        super_script = 'nd'
+    elif common_hour == 3 or com_hour == 23:
+        super_script = 'rd'
     else:
-        sup_script = 'th'
+        super_script = 'th'
 
-    print('    The {}{} hour of the day is the most common hour to start a trip.\n'.format(com_hour,sup_script))
+    print('    The {}{} hour of the day is the most common hour to start a trip.\n'.format(common_hour,super_script))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     signal()
