@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import os
 
-city_data = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+city_data = { 'chicago': 'data/chicago.csv',
+              'new york city': 'data/new_york_city.csv',
+              'washington': 'data/washington.csv' }
 
 def get_filters():
     """
